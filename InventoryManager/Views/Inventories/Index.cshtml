@@ -21,72 +21,71 @@
             @Html.DisplayNameFor(model => model.Quantity)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.QuantityWarningLevel)
+                @Html.DisplayNameFor(model => model.QuantityWarningLevel)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.QuantityRefill)
+                @Html.DisplayNameFor(model => model.QuantityRefill)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.QuantityBehavior)
+                @Html.DisplayNameFor(model => model.QuantityBehavior)
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.SKU)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ItemName)
-        </td>
-        <td>
-           @if (item.Quantity < item.QuantityRefill)
-            {
-            <p style="color: red">@item.Quantity</p>
-
-            }
-           else if (item.Quantity <= item.QuantityWarningLevel)
-           {
-            <p style="color: orange">@item.Quantity</p>
-
-           }
-            else if (item.Quantity >= item.QuantityWarningLevel)
-            {
-                <p style="color: lawngreen">@item.Quantity</p>
-         
-            }
-         
-            else if (item.Quantity > item.QuantityRefill)
-            {
-                <p style="color: lawngreen">@item.Quantity</p>
-
-           }
-           else
-           {
-            <p style="color: lawngreen">@item.Quantity</p>
-           }
 
 
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.SKU)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ItemName)
+            </td>
+            <td>
+                @if (item.Quantity < item.QuantityWarningLevel)
+                {
+                    <p style="color: red">@item.Quantity</p>
 
+                }
+                else if (item.QuantityRefill < item.QuantityWarningLevel)
+                {
+                    <p style="color: orange">@item.Quantity</p>
 
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.QuantityWarningLevel)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.QuantityRefill)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.QuantityBehavior)
-        </td>
+                }
+                else if (item.Quantity > item.QuantityWarningLevel)
+                {
+                    <p style="color: lawngreen">@item.Quantity</p>
+                }
 
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
-        </td>
-    </tr>
-}
+                else if (item.QuantityRefill > item.QuantityWarningLevel)
+                {
+                    < p style = "color: lawngreen" > @item.Quantity </ p >
+
+                }
+                else
+                {
+                    < p style = "color: lawngreen" > @item.Quantity </ p >
+                }
+
+            </td>
+            <td>
+                    @Html.DisplayFor(modelItem => item.QuantityWarningLevel)
+            </td>
+            <td>
+                    @Html.DisplayFor(modelItem => item.QuantityRefill)
+            </td>
+            <td>
+                    @Html.DisplayFor(modelItem => item.QuantityBehavior)
+            </td>
+
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+            </td>
+        </tr>
+    }
 
 </table>

@@ -23,6 +23,8 @@ namespace InventoryManager.Controllers
             return View(db.Inventory.ToList());
         }
 
+
+
         // GET: Inventories/Details/5
         public ActionResult Details(int? id)
         {
