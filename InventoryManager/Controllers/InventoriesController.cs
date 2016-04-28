@@ -10,6 +10,9 @@ using InventoryManager.Models;
 
 namespace InventoryManager.Controllers
 {
+
+    //if we want to not show quantitywarninglevel, we would do that here and return a different view.
+
     public class InventoriesController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
