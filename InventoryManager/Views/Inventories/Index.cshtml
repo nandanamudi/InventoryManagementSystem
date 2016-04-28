@@ -41,23 +41,23 @@
             @Html.DisplayFor(modelItem => item.ItemName)
         </td>
         <td>
-           @if (item.Quantity < item.QuantityWarningLevel)
+           @if (item.Quantity < item.QuantityRefill)
             {
             <p style="color: red">@item.Quantity</p>
 
             }
-           else if (item.QuantityRefill < item.QuantityWarningLevel)
+           else if (item.Quantity <= item.QuantityWarningLevel)
            {
             <p style="color: orange">@item.Quantity</p>
 
            }
-            else if (item.Quantity > item.QuantityWarningLevel)
+            else if (item.Quantity >= item.QuantityWarningLevel)
             {
                 <p style="color: lawngreen">@item.Quantity</p>
          
             }
          
-            else if (item.QuantityRefill > item.QuantityWarningLevel)
+            else if (item.Quantity > item.QuantityRefill)
             {
                 <p style="color: lawngreen">@item.Quantity</p>
 
