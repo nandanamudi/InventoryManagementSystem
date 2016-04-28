@@ -1,5 +1,5 @@
 ﻿@model IEnumerable<InventoryManager.Models.Inventory>
-
+@*@model InventoryManager.Models.Inventory*@
 @{
     ViewBag.Title = "Index";
 }
@@ -41,7 +41,31 @@
             @Html.DisplayFor(modelItem => item.ItemName)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Quantity)
+
+           
+            @if (item.Quantity > item.QuantityWarningLevel)
+            {
+                <p style="color: lawngreen">@item.Quantity</p>
+         
+            }
+            @if (item.Quantity < item.QuantityWarningLevel)
+            {
+                <p style="color: red">@item.Quantity</p>
+               
+            }
+            @if (item.QuantityRefill > item.QuantityWarningLevel)
+            {
+                <p style="color: lawngreen">@item.Quantity</p>
+                
+            }
+            @if (item.QuantityRefill < item.QuantityWarningLevel)
+            {
+                <p style="color: orangered">@item.Quantity</p>
+               
+            }
+            
+
+
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.QuantityWarningLevel)

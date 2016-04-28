@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+
 
 namespace InventoryManager.Models
 {
@@ -20,5 +22,6 @@ namespace InventoryManager.Models
         public int QuantityRefill { get; set; }
 
         public int QuantityBehavior { get; set; }
+
     }
 }
