@@ -21,13 +21,22 @@
             @Html.DisplayNameFor(model => model.Quantity)
         </th>
         <th>
+            @if (HttpContext.Current.User.IsInRole("Admin"))
+            {
                 @Html.DisplayNameFor(model => model.QuantityWarningLevel)
+            }
         </th>
         <th>
+            @if (HttpContext.Current.User.IsInRole("Admin"))
+            {
                 @Html.DisplayNameFor(model => model.QuantityRefill)
+            }
         </th>
         <th>
+            @if (HttpContext.Current.User.IsInRole("Admin"))
+            {
                 @Html.DisplayNameFor(model => model.QuantityBehavior)
+            }
         </th>
         <th></th>
     </tr>
@@ -71,13 +80,22 @@
 
             </td>
             <td>
+                @if (HttpContext.Current.User.IsInRole("Admin"))
+                {
                     @Html.DisplayFor(modelItem => item.QuantityWarningLevel)
+                }
             </td>
             <td>
+                @if (HttpContext.Current.User.IsInRole("Admin"))
+                {
                     @Html.DisplayFor(modelItem => item.QuantityRefill)
+                }
             </td>
             <td>
+                @if (HttpContext.Current.User.IsInRole("Admin"))
+                {
                     @Html.DisplayFor(modelItem => item.QuantityBehavior)
+                }
             </td>
 
             <td>

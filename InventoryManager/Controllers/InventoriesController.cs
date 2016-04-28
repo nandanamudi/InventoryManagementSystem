@@ -24,7 +24,7 @@ namespace InventoryManager.Controllers
         }
 
 
-
+        [Authorize(Roles = "Admin")]
         // GET: Inventories/Details/5
         public ActionResult Details(int? id)
         {
@@ -40,7 +40,7 @@ namespace InventoryManager.Controllers
             return View(inventory);
         }
 
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         // GET: Inventories/Create
         public ActionResult Create()
         {
@@ -64,6 +64,7 @@ namespace InventoryManager.Controllers
             return View(inventory);
         }
 
+        [Authorize(Roles = "Admin")]
         // GET: Inventories/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -95,6 +96,7 @@ namespace InventoryManager.Controllers
             return View(inventory);
         }
 
+        [Authorize(Roles = "Admin")]
         // GET: Inventories/Delete/5
         public ActionResult Delete(int? id)
         {
