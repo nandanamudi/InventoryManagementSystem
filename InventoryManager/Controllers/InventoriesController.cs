@@ -124,6 +124,7 @@ namespace InventoryManager.Controllers
         }
         public ActionResult Search(string searchSKU)
         {
+            //add try catch
             var SKU = (from Stock in db.Inventory
                       select Stock).ToList();
             if (!String.IsNullOrEmpty(searchSKU))
@@ -132,6 +133,8 @@ namespace InventoryManager.Controllers
             }
             return View("Index", SKU);
         }
+        //create a method that returns the google map dot of the correct location based on the SKU or do this in the method above
+
 
         protected override void Dispose(bool disposing)
         {
