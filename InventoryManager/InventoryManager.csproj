@@ -220,6 +220,10 @@
     <Compile Include="Migrations\201604291959138_new.Designer.cs">
       <DependentUpon>201604291959138_new.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201604292112139_includes location.cs" />
+    <Compile Include="Migrations\201604292112139_includes location.Designer.cs">
+      <DependentUpon>201604292112139_includes location.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model1.Context.cs">
       <AutoGen>True</AutoGen>
@@ -336,6 +340,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201604291959138_new.resx">
       <DependentUpon>201604291959138_new.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604292112139_includes location.resx">
+      <DependentUpon>201604292112139_includes location.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
