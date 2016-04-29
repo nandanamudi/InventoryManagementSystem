@@ -11,22 +11,22 @@
             <h4>Send your comments.</h4>
             <hr />
             <div class="form-group">
-                @Html.LabelFor(m => m.FromName, new { @class = "col-md-2 control-label" })
-                <div class="col-md-10">
+                @Html.LabelFor(m => m.FromName, new { @class = "col-md-3 control-label" })
+                <div class="col-md-9">
                     @Html.TextBoxFor(m => m.FromName, new { @class = "form-control" })
                     @Html.ValidationMessageFor(m => m.FromName)
                 </div>
             </div>
             <div class="form-group">
-                @Html.LabelFor(m => m.FromEmail, new { @class = "col-md-2 control-label" })
-                <div class="col-md-10">
+                @Html.LabelFor(m => m.FromEmail, new { @class = "col-md-3 control-label" })
+                <div class="col-md-9">
                     @Html.TextBoxFor(m => m.FromEmail, new { @class = "form-control" })
                     @Html.ValidationMessageFor(m => m.FromEmail)
                 </div>
             </div>
             <div class="form-group">
-                @Html.LabelFor(m => m.Message, new { @class = "col-md-2 control-label" })
-                <div class="col-md-10">
+                @Html.LabelFor(m => m.Message, new { @class = "col-md-3 control-label" })
+                <div class="col-md-9">
                     @Html.TextAreaFor(m => m.Message, new { @class = "form-control" })
                     @Html.ValidationMessageFor(m => m.Message)
                 </div>
