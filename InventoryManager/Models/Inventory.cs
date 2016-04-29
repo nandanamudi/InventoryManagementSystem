@@ -14,8 +14,8 @@ namespace InventoryManager.Models
         public int ID { get; set; }
         public int SKU { get; set; }
         public string ItemName { get; set; }
-
         public int Quantity { get; set; }
+        public string Location { get; set; }
 
         public int QuantityWarningLevel { get; set; }
 
