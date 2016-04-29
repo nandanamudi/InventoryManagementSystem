@@ -76,7 +76,7 @@
                     <p style="color: red">@item.Quantity</p>
 
                 }
-                else if (item.QuantityRefill < item.QuantityWarningLevel)
+                else if (item.Quantity <= item.QuantityWarningLevel)
                 {
                     <p style="color: orange">@item.Quantity</p>
 
@@ -86,11 +86,11 @@
                     <p style="color: lawngreen">@item.Quantity</p>
                 }
 
-                else if (item.QuantityRefill > item.QuantityWarningLevel)
+                @*else if (item.QuantityRefill > item.QuantityWarningLevel)
                 {
                     < p style = "color: lawngreen" > @item.Quantity </ p >
 
-                }
+                }*@
                 else
                 {
                     < p style = "color: lawngreen" > @item.Quantity </ p >
