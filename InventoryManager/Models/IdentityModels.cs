@@ -21,7 +21,7 @@ namespace InventoryManager.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
-
+        public DbSet<Store> Store { get; set; }
         public DbSet<Inventory> Inventory { get; set; }
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
