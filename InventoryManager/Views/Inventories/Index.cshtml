@@ -10,12 +10,22 @@
     {
         @Html.ActionLink("Create New", "Create")
     }
+
+    @using (Html.BeginForm("Search","Inventories",FormMethod.Get))
+    {
+    <p>
+        SKU: @Html.TextBox("searchSKU") <br />
+        <input type="submit" value="Search" />
+    </p>
+    }
+    
 </p>
 
-<form>
+
+@*<form>
     <input name="q" placeholder="Enter SKU or ItemName">
     <input type="submit" value="Search">
-</form>
+</form>*@
 
 <br>
 

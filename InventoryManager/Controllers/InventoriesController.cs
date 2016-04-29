@@ -122,6 +122,16 @@ namespace InventoryManager.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+        public ActionResult Search(string searchSKU)
+        {
+            var SKU = (from Stock in db.Inventory
+                      select Stock).ToList();
+            if (!String.IsNullOrEmpty(searchSKU))
+            {
+                SKU = SKU.Where(s => s.SKU.Equals(Convert.ToInt32(searchSKU))).ToList();
+            }
+            return View("Index", SKU);
+        }
 
         protected override void Dispose(bool disposing)
         {
