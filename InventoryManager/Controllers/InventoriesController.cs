@@ -131,13 +131,19 @@ namespace InventoryManager.Controllers
         public ActionResult Search(string searchSKU)
         {
             //add try catch
-            var SKU = (from Stock in db.Inventory
-                      select Stock).ToList();
-            if (!String.IsNullOrEmpty(searchSKU))
-            {
-                SKU = SKU.Where(s => s.SKU.Equals(Convert.ToInt32(searchSKU))).ToList();
+            try {
+                var SKU = (from Stock in db.Inventory
+                           select Stock).ToList();
+                if (!String.IsNullOrEmpty(searchSKU))
+                {
+                    SKU = SKU.Where(s => s.SKU.Equals(Convert.ToInt32(searchSKU))).ToList();
+                }
+                return View("Index", SKU);
             }
-            return View("Index", SKU);
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
         //create a method that returns the google map dot of the correct location based on the SKU or do this in the method above
 
