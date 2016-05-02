@@ -8,30 +8,32 @@ namespace InventoryManager.Models
 {
     public class MessageServices
     {
-        public async static Task SendEmailAsync(string email, string subject, string message)
+
+        public static void SendEmail(string email, string subj, string mess)
         {
             try
             {
-                var _email = "inventory.manager@outlook.com";
-                var _epass = ConfigurationManager.AppSettings["EmailPassword"];
-                var _dispName = "InvManager";
-                MailMessage myMessage = new MailMessage();
-                myMessage.To.Add(email);
-                myMessage.From = new MailAddress(_email, _dispName);
-                myMessage.Subject = subject;
-                myMessage.Body = message;
-                myMessage.IsBodyHtml = true;
+                var fromAddress = new MailAddress("inventory.managersauce@gmail.com", "Inventory Manager");
+                var toAddress = new MailAddress("inventory.manager@outlook.com", "Nick");
+                const string subject = "Subject";
+                const string fromPassword = "Firetruck55";
 
-                using (SmtpClient smtp = new SmtpClient())
+                var smtp = new SmtpClient
                 {
-                    smtp.EnableSsl = true;
-                    smtp.Host = "smtp.live.com";
-                    smtp.Port = 587;
-                    smtp.UseDefaultCredentials = false;
-                    smtp.Credentials = new NetworkCredential(_email, _epass);
-                    smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
-                    smtp.SendCompleted += (s, e) => { smtp.Dispose(); };
-                    await smtp.SendMailAsync(myMessage);
+                    Host = "smtp.gmail.com",
+                    Port = 587,
+                    EnableSsl = true,
+                    DeliveryMethod = SmtpDeliveryMethod.Network,
+                    UseDefaultCredentials = false,
+                    Credentials = new NetworkCredential(fromAddress.Address, fromPassword)
+                };
+                using (var message = new MailMessage(fromAddress, toAddress)
+                {
+                    Subject = subject,
+                    Body = mess
+                })
+                {
+                    smtp.Send(message);
                 }
             }
             catch (Exception ex)

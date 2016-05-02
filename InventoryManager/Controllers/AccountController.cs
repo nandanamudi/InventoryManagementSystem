@@ -36,15 +36,15 @@ namespace InventoryManager.Controllers
             return View();
         }
         
-        [HttpPost]
-        [AllowAnonymous]
-        public async Task<ActionResult> SendEmail(SendEmailViewModel model)
-        {
-            var message = await EmailTemplate("WelcomeEmail");
-            message = message.Replace("@ViewBag.Name", CultureInfo.CurrentCulture.TextInfo.ToTitleCase(model.FirstName));
-            await MessageServices.SendEmailAsync(model.Email, "Welcome!", message);
-            return View("EmailSent");
-        }
+        //[HttpPost]
+        //[AllowAnonymous]
+        //public async Task<ActionResult> SendEmail(SendEmailViewModel model)
+        //{
+        //    var message = await EmailTemplate("WelcomeEmail");
+        //    message = message.Replace("@ViewBag.Name", CultureInfo.CurrentCulture.TextInfo.ToTitleCase(model.FirstName));
+        //    await MessageServices.SendEmail(model.Email, "Welcome!", message);
+        //    return View("EmailSent");
+        //}
 
         [HttpGet]
         [AllowAnonymous]
