@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using InventoryManager.Models;
+using System.Threading.Tasks;
 
 namespace InventoryManager.Controllers
 {
@@ -66,7 +67,7 @@ namespace InventoryManager.Controllers
 
         [Authorize(Roles = "Admin")]
         // GET: Inventories/Edit/5
-        public ActionResult Edit(int? id)
+        public async System.Threading.Tasks.Task<ActionResult> Edit(int? id)
         {
             if (id == null)
             {
@@ -77,6 +78,7 @@ namespace InventoryManager.Controllers
             {
                 return HttpNotFound();
             }
+
             return View(inventory);
         }
 
@@ -91,6 +93,10 @@ namespace InventoryManager.Controllers
             {
                 db.Entry(inventory).State = EntityState.Modified;
                 db.SaveChanges();
+            if (inventory.Quantity < inventory.QuantityWarningLevel)
+            {
+                MessageServices.SendEmail("inventory.manager@outlook.com", "Inventory Notification", "Your inventory is low.");
+            }
                 return RedirectToAction("Index");
             }
             return View(inventory);

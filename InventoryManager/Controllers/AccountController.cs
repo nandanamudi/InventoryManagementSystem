@@ -9,6 +9,8 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using InventoryManager.Models;
+using System.Web.Hosting;
+using System.IO;
 
 namespace InventoryManager.Controllers
 {
@@ -17,6 +19,41 @@ namespace InventoryManager.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+
+        public static async Task<string> EmailTemplate(string template)
+        {
+            var templateFilePath = HostingEnvironment.MapPath("~/Content/templates/") + template + ".cshtml";
+            StreamReader objstreamreaderfile = new StreamReader(templateFilePath);
+            var body = await objstreamreaderfile.ReadToEndAsync();
+            objstreamreaderfile.Close();
+            return body;
+        }
+
+        [HttpGet]
+        [AllowAnonymous]
+        public ActionResult SendEmail()
+        {
+            return View();
+        }
+        
+        //[HttpPost]
+        //[AllowAnonymous]
+        //public async Task<ActionResult> SendEmail(SendEmailViewModel model)
+        //{
+        //    var message = await EmailTemplate("WelcomeEmail");
+        //    message = message.Replace("@ViewBag.Name", CultureInfo.CurrentCulture.TextInfo.ToTitleCase(model.FirstName));
+        //    await MessageServices.SendEmail(model.Email, "Welcome!", message);
+        //    return View("EmailSent");
+        //}
+
+        [HttpGet]
+        [AllowAnonymous]
+        public ActionResult EmailSent()
+        {
+            return View();
+        }
+
+
 
         public AccountController()
         {
@@ -479,6 +516,8 @@ namespace InventoryManager.Controllers
                 }
                 context.HttpContext.GetOwinContext().Authentication.Challenge(properties, LoginProvider);
             }
+
+
         }
         #endregion
     }

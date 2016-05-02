@@ -52,7 +52,7 @@ namespace InventoryManager.Controllers
                     var credential = new NetworkCredential
                     {
                         UserName = "inventory.manager@outlook.com",  // replace with valid value
-                        Password = "Fernando1!"  // replace with valid value
+                        Password = "Firetruck55"  // replace with valid value
                     };
                     smtp.Credentials = credential;
                     smtp.Host = "smtp-mail.outlook.com";

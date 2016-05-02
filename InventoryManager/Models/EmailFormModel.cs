@@ -8,12 +8,11 @@ namespace InventoryManager.Models
 {
         public class EmailFormModel
         {
-            [Required, Display(Name = "Fernando")]
+            [Required, Display(Name = "Name")]
             public string FromName { get; set; }
-            [Required, Display(Name = "inventory.manager@outlook.com"), EmailAddress]
+            [Required, Display(Name = "Email Address"), EmailAddress]
             public string FromEmail { get; set; }
             [Required]
             public string Message { get; set; }
         }
-    
     }

@@ -86,15 +86,14 @@
                     <p style="color: lawngreen">@item.Quantity</p>
                 }
 
-                @*else if (item.QuantityRefill > item.QuantityWarningLevel)
-                {
-                    < p style = "color: lawngreen" > @item.Quantity </ p >
-
-                }*@
                 else
                 {
                     < p style = "color: lawngreen" > @item.Quantity </ p >
                 }
+                @*@if (item.Quantity < item.QuantityRefill)
+                {
+                    SendLowBalanceMail("Swedish Fish");
+                }*@
 
             </td>
             <td>
