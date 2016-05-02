@@ -22,7 +22,7 @@ namespace InventoryManager.Controllers
 
         public static async Task<string> EmailTemplate(string template)
         {
-            var templateFilePath = HostingEnvironment.MapPath("~/Content/templates") + template + ".cshtml";
+            var templateFilePath = HostingEnvironment.MapPath("~/Content/templates/") + template + ".cshtml";
             StreamReader objstreamreaderfile = new StreamReader(templateFilePath);
             var body = await objstreamreaderfile.ReadToEndAsync();
             objstreamreaderfile.Close();
