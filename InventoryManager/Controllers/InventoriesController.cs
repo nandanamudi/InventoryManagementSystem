@@ -67,7 +67,7 @@ namespace InventoryManager.Controllers
 
         [Authorize(Roles = "Admin")]
         // GET: Inventories/Edit/5
-        public async System.Threading.Tasks.Task<ActionResult> Edit(int? id)
+        public ActionResult Edit(int? id)
         {
             if (id == null)
             {
@@ -87,7 +87,7 @@ namespace InventoryManager.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,SKU,Quantity,QuantityWarningLevel,QuantityRefill,QuantityBehavior")] Inventory inventory)
+        public ActionResult Edit(/*[Bind(Include = "ID,SKU,Quantity,QuantityWarningLevel,QuantityRefill,QuantityBehavior")]*/ Inventory inventory)
         {
             if (ModelState.IsValid)
             {
