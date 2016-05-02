@@ -10,6 +10,8 @@ namespace InventoryManager.Models
 {
     public class Inventory
     {
+        //public bool smtp { get; set; }
+
         [Key]
         public int ID { get; set; }
         public int SKU { get; set; }
@@ -23,5 +25,18 @@ namespace InventoryManager.Models
 
         public int QuantityBehavior { get; set; }
 
+        //public void SendLowBalanceMail(string ProductName)
+        //{
+        //    string Body = "Hi, <br /> This is an automated mail from your system. <b>" + ProductName + "</b> is below minimum quantity in stock. Kindly note down and raise a purchase order for the same.<br />Thank You.";
+
+        //    System.Net.Mail.SmtpClient smtpServer = new System.Net.Mail.SmtpClient("smtp.googlemail.com", 587);
+
+        //    System.Net.Mail.MailMessage msg = new System.Net.Mail.MailMessage(
+        //    "AutoMail@InventoryManager.com", "inventory.manager@outlook.com", "Notification for low inventory.", Body);
+
+        //    msg.IsBodyHtml = true;
+        //    smtp.EnableSsl = true;
+        //    smtpServer.Send(msg);
+        //}
     }
 }

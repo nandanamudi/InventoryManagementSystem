@@ -15,5 +15,4 @@ namespace InventoryManager.Models
             [Required]
             public string Message { get; set; }
         }
-    
     }
